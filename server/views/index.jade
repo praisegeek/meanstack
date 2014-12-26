@@ -1,0 +1,17 @@
+extends ../includes/layout
+
+block main-content
+    header.navbar-header
+        a.navbar-brand(href="/") Site Name
+            h6 - Site slogan goes here
+        .navbar-collapse.collapse
+            ul.nav.navbar-nav
+                li: a(href="/") Home
+                li: a(href="/users") Users
+            div(ng-include="'/partials/account/navbar-login'")
+    
+    section.content
+        div(ng-view)
+    
+    footer.container.text-center
+        p &copy; #{new Date.getFullYear()} Site Corp.

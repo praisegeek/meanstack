@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+    head
+        title Site title | SiteName
+        base(href='/')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        
+        link(href='/favicon.icon', rel='shortcut icon', type='image/x-icon')
+        link(href='/vendor/fontawesome/css/font-awesome.css', rel='stylesheet')
+        link(href='/vendor/toastr/toastr.css', rel='stylesheet')
+        link(href='/css/style.css', rel='stylesheet')
+    body(ng-app='app')
+        include currentUser
+        block main-content
+        include scripts
