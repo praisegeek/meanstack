@@ -9,4 +9,4 @@ require("./server/config/passport")();
 require("./server/config/routes")(app, config);
 
 app.listen(config.port);
-console.log('Listening on port' + config.port + '...');
+console.log('Listening on port ' + config.port + '...');

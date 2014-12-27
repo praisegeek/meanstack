@@ -12,7 +12,7 @@ module.exports = function(app, config) {
         return stylus(str).set('filename', path);
     }
     
-    app.configure(function() {
+    if (app) {
         app.set('views', config.rootPath + '/server/views');
         app.set('view engine', 'jade');
         app.use(stylus.middleware({
@@ -22,7 +22,7 @@ module.exports = function(app, config) {
         app.use(express.static(config.rootPath + '/public'));
         app.use(morgan('dev'));
         app.use(cookieParser());
-        app.use(bodyParser.urlencoded({ extend: false }));
+        app.use(bodyParser.urlencoded({ extended: false }));
         app.use(bodyParser.json());
         app.use(methodOverride());
         app.use(session({
@@ -30,5 +30,7 @@ module.exports = function(app, config) {
             resave: false,
             saveUninitialized: true
         }));
-    })
-}
+        app.use(passport.initialize());
+        app.use(passport.session());
+    }
+};
