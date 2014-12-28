@@ -36,6 +36,16 @@ function createDefaultUsers() {
             salt = encrypt.createSalt();
             hash = encrypt.hashPwd(salt, 'praisegod');
             User.create({firstName:'Praise-God', lastName:'Emerenini', middleName:'Chibuzor', username:'praisegeek', email:'praisegeek@gmail.com', salt: salt, hashed_pwd: hash, roles: ['user']});
+        
+            var salt,hash;
+            salt = encrypt.createSalt();
+            hash = encrypt.hashPwd(salt, 'lebron');
+            User.create({firstName:'Lebron', lastName:'James', username:'lebronjames', email:'kingljames@gmail.com', salt: salt, hashed_pwd: hash, roles: ['admin']});
+            
+            var salt,hash;
+            salt = encrypt.createSalt();
+            hash = encrypt.hashPwd(salt, 'john');
+            User.create({firstName:'John', lastName:'Doe', middleName:'Lolz', username:'johndoe', email:'johndoe@yahoo.com', salt: salt, hashed_pwd: hash, roles: ['user']});
         }
     });
 }
