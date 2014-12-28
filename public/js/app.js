@@ -22,7 +22,9 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
     
     $locationProvider.html5Mode(true);
     $routeProvider
-        .when('/', {templateUrl: '/partials/main/home', controller: 'mvMainCtrl' });
+        .when('/', {templateUrl: '/partials/main/home' })
+        .when('/about', {templateUrl: '/partials/main/about' })
+        .when('/users', {templateUrl: '/partials/main/users', controller: 'mvUsersCtrl' });
 });
 
 angular.module('app').service('popupService', function($window) {

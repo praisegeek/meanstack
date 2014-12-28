@@ -1,11 +1,12 @@
 var User = require('mongoose').model('User'),
     encrypt = require('../utilities/encryption');
 
-exports.getUsers = function(req, res) {
+exports.seedUsers = function(req, res) {
     User.find({}).exec(function(err, collection) {
         res.send(collection);
-    })
+    });
 };
+
 
 exports.createUser = function(req, res, next) {
     var userData = req.body;

@@ -4,6 +4,7 @@ var auth = require('./auth'),
 
 module.exports = function(app, config) {
     //Todo: Your API & local routes
+    app.get('/api/users', users.seedUsers);
     app.post('/api/users', users.createUser);
     
     app.post('/login', auth.authenticate);
@@ -16,7 +17,7 @@ module.exports = function(app, config) {
         res.render(config.rootPath + '/public/app/' + req.params[0]);
     });
     app.all('/api/*', function(req, res) {
-        res.send(404);
+        res.sendStatus(404);
     });
     app.get('*', function(req, res) {
         var user = {};

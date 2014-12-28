@@ -9,7 +9,11 @@ var userSchema = new mongoose.Schema({
     email: {type:String, required:'{path} is required!', unique:true},
     salt: {type:String, required:'{path} is required!'},
     hashed_pwd: {type:String, required:'{path} is required'},
-    roles: [String]
+    verified: {type:Boolean, default: false},
+    verificationCode: {type:String},
+    roles: [String],
+    createdAt: {type:Date, default: Date.now},
+    updatedAt: {type:Date}
 });
 
 userSchema.methods = {

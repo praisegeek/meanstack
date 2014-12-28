@@ -1,17 +1,26 @@
 extends ../includes/layout
 
 block main-content
-    header.navbar-header
-        a.navbar-brand(href="/") Site Name
-            h6 - Site slogan goes here
-        .navbar-collapse.collapse
-            ul.nav.navbar-nav
-                li: a(href="/") Home
-                li: a(href="/users") Users
-            div(ng-include="'/partials/account/navbar-login'")
+    header.navbar.navbar-default(ng-controller="mvMainCtrl")
+        .container
+            .navbar-header
+                button.navbar-toggle(data-toggle="collapse", data-target="#navbar-menu")
+                    span.sr-only Toggle Navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href="/") Site Name
+            
+            .navbar-collapse.collapse#navbar-menu
+                ul.nav.navbar-nav
+                    li(ng-class="{'active': menu == 'home'}"): a(href="/") Home
+                    li(ng-class="{'active': menu == 'about'}"): a(href="/about") About us
+                    li(ng-class="{'active': menu == 'users'}"): a(href="/users") Users
+                div(ng-include="'/partials/account/navbar-login'")
     
-    section.content
+    section.content(ng-controller="mvMainCtrl")
         div(ng-view)
     
-    footer.container.text-center
-        p &copy; #{new Date.getFullYear()} Site Corp.
+    footer
+        .container
+            p.text-center &copy; #{new Date().getFullYear()} Site Corp, All rights reserved.
