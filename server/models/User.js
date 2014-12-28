@@ -31,7 +31,7 @@ exports.createDefaultUsers = createDefaultUsers;
 
 function createDefaultUsers() {
     User.find({}).exec(function(err, user) {
-        if(user.length === 0) {
+        if(user.length == 0) {
             var salt,hash;
             salt = encrypt.createSalt();
             hash = encrypt.hashPwd(salt, 'praisegod');

@@ -1,7 +1,7 @@
 extends ../includes/layout
 
 block main-content
-    header.navbar.navbar-default(ng-controller="mvMainCtrl")
+    header.navbar.navbar-default
         .container
             .navbar-header
                 button.navbar-toggle(data-toggle="collapse", data-target="#navbar-menu")
@@ -18,7 +18,7 @@ block main-content
                     li(ng-class="{'active': menu == 'users'}"): a(href="/users") Users
                 div(ng-include="'/partials/account/navbar-login'")
     
-    section.content(ng-controller="mvMainCtrl")
+    section.content
         div(ng-view)
     
     footer

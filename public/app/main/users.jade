@@ -5,6 +5,9 @@
                 h1 USERS
                 small {{menu}}
                 
-            ul.list-group(ng-repeat="user in users")
-                .list-group-item {{user.firstName}} {{user.lastName}}
-                    .badge {{user.roles.toString() }}
+            ul.list-group
+                .list-group-item(ng-repeat="user in users") {{user.firstName}} {{user.lastName}}
+                    .badge {{ user.roles.toString() }}
+                    
+            h4 API version
+            a(href="/api/users", target="_blank") New users

@@ -43,4 +43,8 @@ angular.module('app').run(function($rootScope, $location) {
             $location.path('/');
         }
     });
+    
+    $rootScope.$on('$locationChangeStart', function(evt, next, current) {
+        $rootScope.menu = ($location.path() == '/') ? 'home' : $location.path().substr(1);
+    });
 });

@@ -1,4 +1,3 @@
-angular.module('app').controller('mvMainCtrl', function($scope, $location) {
-   $scope.menu = ($location.path() == '/') ? 'home' : $location.path().substr(1);
+angular.module('app').controller('mvMainCtrl', function($rootScope, $scope, $location) {
 
 });
